@@ -38,10 +38,12 @@ passOne.addEventListener("click", copyToClipboard)
 passTwo.addEventListener("click", copyToClipboard)
 
 function copyToClipboard(event) {
+    console.log("Copy to clipboard triggered")
     const passwordText = event.target.textContent
     
     navigator.clipboard.writeText(passwordText)
     .then(() => {
+        console.log("Copied to clipboard")
         event.target.classList.add("copied")
         setTimeout(() => {
             event.target.classList.remove("copied")
