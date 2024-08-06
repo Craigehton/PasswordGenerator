@@ -37,7 +37,24 @@ generateButton.addEventListener("click", function() {
 passOne.addEventListener("click", copyToClipboard)
 passTwo.addEventListener("click", copyToClipboard)
 
+
 function copyToClipboard(event) {
+    const passwordText = event.target.textContent;
+    const tempInput = document.createElement("textarea");
+    tempInput.value = passwordText;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    
+    event.target.classList.add("copied");
+    setTimeout(() => {
+        event.target.classList.remove("copied");
+    }, 1000);
+    
+    console.log("Copied to clipboard");
+}
+/* function copyToClipboard(event) {
     console.log("Copy to clipboard triggered")
     const passwordText = event.target.textContent
     
@@ -53,3 +70,4 @@ function copyToClipboard(event) {
         console.error("Failed to copy: ", err)
     })
 }
+ */
