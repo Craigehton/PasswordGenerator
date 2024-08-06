@@ -37,7 +37,6 @@ generateButton.addEventListener("click", function() {
 passOne.addEventListener("click", copyToClipboard)
 passTwo.addEventListener("click", copyToClipboard)
 
-
 function copyToClipboard(event) {
     const passwordText = event.target.textContent;
     const tempInput = document.createElement("textarea");
@@ -52,8 +51,24 @@ function copyToClipboard(event) {
         event.target.classList.remove("copied");
     }, 1000);
     
+    showNotification("Copied to clipboard!")
     console.log("Copied to clipboard");
 }
+
+function showNotification(message) {
+    const notification = document.getElementById("notification")
+    notification.textContent = message
+    notification.classList.remove("hidden")
+
+    setTimeout(() => {
+        notification.classList.add("hidden")
+    }, 2000)
+}
+
+
+//This functionality below didn't allow me to copy in VS Code or Google Chrome,
+//so the above code was implemented and now all works.
+
 /* function copyToClipboard(event) {
     console.log("Copy to clipboard triggered")
     const passwordText = event.target.textContent
