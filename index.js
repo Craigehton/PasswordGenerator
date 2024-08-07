@@ -6,6 +6,12 @@ const passTwo = document.getElementById("password-two")
 const lengthSelect = document.getElementById("lengthSelect")
 const generateButton = document.getElementById("generateButton")
 
+const characterSets = {
+    letters: characters.slice(0, 52),
+    numbers: characters.slice(52, 62),
+    symbols: characters.slice(62),
+}
+
 if (lengthSelect.options.length === 0) {
     for (let i = 1; i <= 20; i++) {
         const option = document.createElement("option")
@@ -21,11 +27,27 @@ function randomCharacter() {
 }
 
 function generatePassword(length) {
+    const charSet = getCharacterSet()
     let password = ""
     for (let i = 0; i < length; i++) {
-        password += randomCharacter()
+        let randomIndex = Math.floor(Math.random() * charSet.length)
+        password += charSet[randomIndex]
     }
     return password 
+}
+
+function getCharacterSet() {
+    const includeNumbers = document.getElementById("includeNumbers")
+    const includeSymbols = document.getElementById("includeSymbols")
+    
+    let charSet = characterSets.letters
+    if (includeNumbers.checked) charSet = charSet.concat(characterSets.numbers)
+    if (includeSymbols.checked) charSet = charSet.concat(characterSets.symbols)
+ 
+    if (!includeNumbers.checked && !includeSymbols.checked) {
+        charSet = characterSets.letters
+    }   
+    return charSet
 }
 
 generateButton.addEventListener("click", function() {
