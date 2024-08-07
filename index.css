@@ -112,3 +112,11 @@ button {
     font-size: 16px;
     z-index: 1000;
 }
+
+.toggle {
+    color: whitesmoke;
+    position: absolute;
+    height: 0px;
+    left: 232px;
+    top: 343px;
+}
