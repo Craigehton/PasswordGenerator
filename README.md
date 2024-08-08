@@ -3,6 +3,6 @@ A very basic random password generator created with HTML, CSS, and JavaScript wi
 
 ![alt text](image.png)
 
-Check it out live! 
+Check it out live on:
 
 https://passmeone.netlify.app
