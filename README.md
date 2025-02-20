@@ -6,7 +6,3 @@ A very basic random password generator created with HTML, CSS, and JavaScript wi
 Check it out live on:
 
 https://passmeone.netlify.app
-
-Thank you!
-
-Test!
